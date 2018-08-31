@@ -18,8 +18,8 @@ func main() {
 	}
 
 	// Reading the balance of account.
-
-	account := common.HexToAddress("0x71c7656ec7ab88b098defb751b7401b5f6d8976f")
+	accountStr := "0x71c7656ec7ab88b098defb751b7401b5f6d8976f"
+	account := common.HexToAddress(accountStr)
 
 	// Setting nil as the block number will return the latest balance
 	balance, err := client.BalanceAt(context.Background(), account, nil)
@@ -44,4 +44,10 @@ func main() {
 	fbalance.SetString(balanceAt.String())
 	ethValue := new(big.Float).Quo(fbalance, big.NewFloat(math.Pow10(18)))
 	fmt.Println(ethValue) // 25.729324269165216041
+
+	// Pending Balance
+	//   Sometimes there is pending account balance. For example after submitting or
+	//   waiting for a transaction to be confirmed, pending account balance will be created
+	pendingBalance, err := client.PendingBalanceAt(context.Background(), account)
+	fmt.Println("Pending Balance of account", accountStr, ":", pendingBalance) // 25943679348360745848
 }
