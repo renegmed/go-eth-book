@@ -4,6 +4,7 @@ import (
 	"context"
 	"fmt"
 	"log"
+	"math"
 	"math/big"
 
 	"github.com/ethereum/go-ethereum/common"
@@ -29,10 +30,18 @@ func main() {
 
 	// Reading the balance on a particular block
 
-	blockNumber := big.NewInt(6123635) //5532993) // or 6123635
+	blockNumber := big.NewInt(5532993) // or 6123635
 	balanceAt, err := client.BalanceAt(context.Background(), account, blockNumber)
 	if err != nil {
 		log.Fatal(err)
 	}
 	fmt.Println("Balance of block", blockNumber, ":", balanceAt)
+
+	// With conversion to Ether units since 1 ether = 10^18 weis
+	// we need to use Go's math and  math/big packages
+
+	fbalance := new(big.Float)
+	fbalance.SetString(balanceAt.String())
+	ethValue := new(big.Float).Quo(fbalance, big.NewFloat(math.Pow10(18)))
+	fmt.Println(ethValue) // 25.729324269165216041
 }
