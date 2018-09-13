@@ -18,7 +18,7 @@ import (
 	"github.com/ethereum/go-ethereum/crypto/sha3"
 )
 
-func generate_wallet_main() {
+func main() {
 
 	// To generate a new wallet, call crypto.GenerateKey() to generate
 	// a random private key

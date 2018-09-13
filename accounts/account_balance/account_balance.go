@@ -11,7 +11,7 @@ import (
 	"github.com/ethereum/go-ethereum/ethclient"
 )
 
-func account_balance_main() {
+func main() {
 	client, err := ethclient.Dial("https://mainnet.infura.io")
 	if err != nil {
 		log.Fatal(err)
