@@ -31,7 +31,7 @@ import (
 	"math/big"
 	"strings"
 
-	store "ethereum-go-book/event_logs/contracts"
+	store "ethereum-go-book/event_logs/reading_event_logs/contracts"
 
 	ethereum "github.com/ethereum/go-ethereum"
 	"github.com/ethereum/go-ethereum/accounts/abi"
