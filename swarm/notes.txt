@@ -1,0 +1,23 @@
+
+Commands
+
+$ go get -d github.com/ethereum/go-ethereum
+$ go install github.com/ethereum/go-ethereum/cmd/geth
+$ go install github.com/ethereum/go-ethereum/cmd/swarm
+$ geth account new
+$ export BZZKEY=970ef9790b54425bea2c02e25cab01e48cf92573
+$ swarm --bzzaccount $BZZKEY
+
+
+$ geth account new
+INFO [09-18|22:02:05.086] Maximum peer count                       ETH=25 LES=0 total=25
+Your new account is locked with a password. Please give a password. Do not forget this password.
+Passphrase:
+Repeat passphrase:
+Address: {aa85f120f6025a688b655947adfcab4df9727fe6}
+
+export BZZKEY=aa85f120f6025a688b655947adfcab4df9727fe6
+
+swarm --bzzaccount $BZZKEY
+. . .
+IPC endpoint opened     url=/Users/rene/Library/Ethereum/bzzd.ipc
